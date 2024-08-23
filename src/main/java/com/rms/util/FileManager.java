@@ -9,8 +9,69 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Map;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class FileManager {
+
+    private static final String DATA_DIRECTORY = "data";
+
+    static {
+        // Create the data directory if it doesn't exist
+        File directory = new File(DATA_DIRECTORY);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+    }
+
+    private static void createEmptyFile(File file, String defaultContent) {
+        try {
+            if (file.createNewFile()) {
+                try (FileWriter writer = new FileWriter(file)) {
+                    writer.write(defaultContent);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Order> loadOrders() {
+        List<Order> orders = new ArrayList<>();
+        File file = new File(DATA_DIRECTORY + "/orders.json");
+        if (!file.exists()) {
+            createEmptyFile(file);
+        }
+
+        try (FileReader reader = new FileReader(file)) {
+            // Your logic to read orders from file
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return orders;
+    }
+
+    public static void saveOrders(List<Order> orders) {
+        File file = new File(DATA_DIRECTORY + "/orders.json");
+
+        try (FileWriter writer = new FileWriter(file)) {
+            // Your logic to write orders to file
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void createEmptyFile(File file) {
+        try {
+            file.createNewFile();
+            // Optionally, you can write some default content to the file
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static final Gson gson = new Gson();
 
     public static void saveSalesReport(SalesReport report, String filePath) throws IOException {
