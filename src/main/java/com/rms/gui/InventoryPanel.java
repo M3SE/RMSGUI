@@ -1,4 +1,4 @@
-package com.rms;
+package com.rms.gui;
 
 public class InventoryPanel {
 }
