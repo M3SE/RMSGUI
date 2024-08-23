@@ -1,4 +1,8 @@
 package com.rms.enums;
 
-public class OrderStatus {
+public enum OrderStatus {
+    WAITING,
+    PREPARING,
+    COMPLETED,
+    CLEARED;
 }

@@ -1,4 +1,9 @@
 package com.rms.enums;
 
-public class TableStatus {
+public enum TableStatus {
+    AVAILABLE,
+    RESERVED,
+    OCCUPIED,
+    ORDERED,
+    SERVED;
 }
