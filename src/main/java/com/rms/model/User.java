@@ -4,12 +4,12 @@ import com.rms.enums.UserRole;
 
 public class User {
     private String username;
-    private String passwordHash;
-    private UserRole role;
+    private String password;
+    private UserRole role; // Assuming you have roles like STAFF, MANAGER, etc.
 
-    public User(String username, String passwordHash, UserRole role) {
+    public User(String username, String password, UserRole role) {
         this.username = username;
-        this.passwordHash = passwordHash;
+        this.password = password;
         this.role = role;
     }
 
@@ -17,20 +17,16 @@ public class User {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public String getPassword() {
+        return password;
     }
 
     public UserRole getRole() {
         return role;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setRole(UserRole role) {

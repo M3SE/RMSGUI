@@ -13,6 +13,12 @@ import java.util.Map;
 public class FileManager {
     private static final Gson gson = new Gson();
 
+    public static void saveSalesReport(SalesReport report, String filePath) throws IOException {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            gson.toJson(report, writer);
+        }
+    }
+
     public static void saveUsers(Map<String, User> users, String filePath) throws IOException {
         try (FileWriter writer = new FileWriter(filePath)) {
             gson.toJson(users, writer);

@@ -13,7 +13,7 @@ public class MenuManagementPanel extends JPanel {
     private JTable menuTable;
     private DefaultTableModel tableModel;
 
-    public MenuManagementPanel() {
+    public MenuManagementPanel(MenuService menuService) {
         this.menuService = new MenuService();
         setLayout(new BorderLayout());
 

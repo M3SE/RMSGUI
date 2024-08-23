@@ -2,19 +2,18 @@ package com.rms.gui;
 
 import com.rms.model.SalesReport;
 import com.rms.service.SalesReportService;
+import com.rms.service.OrderService;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class SalesReportPanel extends JPanel {
-    private final SalesReportService salesReportService;
-    private final JTextArea reportArea;
+    private JTextArea reportArea;
+    private SalesReportService salesReportService;
 
-    public SalesReportPanel() {
-        this.salesReportService = new SalesReportService(new OrderService()); // Assuming SalesReportService constructor requires OrderService
-        setLayout(new BorderLayout());
+    public SalesReportPanel(OrderService orderService) {
+        this.salesReportService = new SalesReportService(orderService);  // Pass in the OrderService
 
-        // Setup text area to display reports
         reportArea = new JTextArea();
         reportArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(reportArea);

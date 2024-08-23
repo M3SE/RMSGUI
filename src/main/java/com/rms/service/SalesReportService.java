@@ -4,7 +4,9 @@ import com.rms.model.Order;
 import com.rms.model.SalesReport;
 import com.rms.util.FileManager;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +40,14 @@ public class SalesReportService {
     private void saveReport(SalesReport report) {
         try {
             FileManager.saveSalesReport(report, "data/salesReport.json");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void exportReport(SalesReport report, String filePath) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
+            writer.println(report.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

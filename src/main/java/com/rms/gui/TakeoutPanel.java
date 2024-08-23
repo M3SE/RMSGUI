@@ -19,7 +19,7 @@ public class TakeoutPanel extends JPanel {
     private final JTextField customerNameField;
     private final JTextField phoneNumberField;
 
-    public TakeoutPanel() {
+    public TakeoutPanel(OrderService orderService, MenuService menuService) {
         this.menuService = new MenuService();
         this.orderService = new OrderService();
         setLayout(new BorderLayout());

@@ -17,7 +17,7 @@ public class CustomerOrderingPanel extends JPanel {
     private final JTable menuTable;
     private final DefaultTableModel tableModel;
 
-    public CustomerOrderingPanel() {
+    public CustomerOrderingPanel(OrderService orderService, MenuService menuService) {
         this.menuService = new MenuService();
         this.orderService = new OrderService();
         setLayout(new BorderLayout());

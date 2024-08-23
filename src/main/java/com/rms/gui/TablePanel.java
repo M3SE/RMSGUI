@@ -2,6 +2,7 @@ package com.rms.gui;
 
 import com.rms.enums.TableStatus;
 import com.rms.model.Table;
+import com.rms.service.OrderService;
 import com.rms.service.TableService;
 
 import javax.swing.*;
@@ -14,7 +15,7 @@ public class TablePanel extends JPanel {
     private final JTable tableTable;
     private final DefaultTableModel tableModel;
 
-    public TablePanel() {
+    public TablePanel(OrderService orderService) {
         this.tableService = new TableService();
         setLayout(new BorderLayout());
 

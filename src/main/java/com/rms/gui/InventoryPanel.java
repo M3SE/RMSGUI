@@ -13,7 +13,7 @@ public class InventoryPanel extends JPanel {
     private final JTable inventoryTable;
     private final DefaultTableModel tableModel;
 
-    public InventoryPanel() {
+    public InventoryPanel(InventoryService inventoryService) {
         this.inventoryService = new InventoryService();
         setLayout(new BorderLayout());
 

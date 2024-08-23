@@ -1,3 +1,16 @@
+package com.rms.gui;
+
+import com.rms.enums.OrderStatus;
+import com.rms.model.Order;
+import com.rms.service.InventoryService;
+import com.rms.service.OrderProcessor;
+import com.rms.service.OrderService;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.util.List;
+
 public class OrderManagementPanel extends JPanel {
     private final OrderService orderService;
     private final OrderProcessor orderProcessor;
@@ -64,7 +77,7 @@ public class OrderManagementPanel extends JPanel {
         if (selectedRow != -1) {
             String orderId = (String) tableModel.getValueAt(selectedRow, 0);
             orderProcessor.markOrderAsReady(orderId);
-            tableModel.setValueAt(OrderStatus.Ready, selectedRow, 2);
+            tableModel.setValueAt(OrderStatus.READY, selectedRow, 2);
         }
     }
 }
